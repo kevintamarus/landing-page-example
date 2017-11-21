@@ -4,9 +4,15 @@ import NetkiSVG from '../assets/nk-logo.svg';
 import LoginButton from '../assets/btn_login.svg';
 
 class LandingPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state
+  }
+  
   render() {
+    console.log(window.innerHeight, 'window height')
+    console.log(window.innerWidth, 'window width')
     return (
-      <div>
       <div className="text-center" style={styles.container}>
         <img src={NetkiSVG} style={styles.logo}/>
           <div style={styles.form}>
@@ -30,7 +36,6 @@ class LandingPage extends Component {
           <div style={styles.quotesThree}>Knowing your customers have never been so fast</div>
         </div>
       </div>
-      </div>
     )
   }
 }
@@ -41,15 +46,15 @@ const styles = {
   container: {
     backgroundColor: '#ffffff',
     height: window.innerHeight,
-    width: window.innerWidth/3,
+    width: 570,
     textAlign: 'center'
   },
   logo: {
-    marginTop: 100
+    margin: 100
   },
   form: {
     textAlign: 'center',
-    marginTop: 200,
+    margin: 100,
     marginLeft: 75,
     marginRight: 75
   },
@@ -73,7 +78,7 @@ const styles = {
     marginLeft: 1000,
     textAlign: 'left',
     color: '#ffffff',
-    fontFamily: 'times-new-roman'
+    fontFamily: 'Open Sans'
   },
   quotesOne: {
     fontSize: 32
