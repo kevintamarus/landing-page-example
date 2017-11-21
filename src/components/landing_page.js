@@ -6,6 +6,7 @@ import LoginButton from '../assets/btn_login.svg';
 class LandingPage extends Component {
   render() {
     return (
+      <div>
       <div className="text-center" style={styles.container}>
         <img src={NetkiSVG} style={styles.logo}/>
           <div style={styles.form}>
@@ -23,6 +24,12 @@ class LandingPage extends Component {
           <span style={styles.footerOne}>Having Trouble Logging In?</span>
           <span style={styles.footerTwo}> We'll Help You! </span>
         </div>
+        <div style={styles.quotes} >
+          <div style={styles.quotesOne}>Welcome to</div>
+          <div style={styles.quotesTwo}>Compliance Dashboard</div>
+          <div style={styles.quotesThree}>Knowing your customers have never been so fast</div>
+        </div>
+      </div>
       </div>
     )
   }
@@ -32,7 +39,7 @@ export default LandingPage
 
 const styles = {
   container: {
-    backgroundColor: 'white',
+    backgroundColor: '#ffffff',
     height: window.innerHeight,
     width: window.innerWidth/3,
     textAlign: 'center'
@@ -59,5 +66,24 @@ const styles = {
   },
   footerTwo: {
     color: '#11abd6'
+  },
+  quotes: {
+    width: 450,
+    marginTop: -400,
+    marginLeft: 1000,
+    textAlign: 'left',
+    color: '#ffffff',
+    fontFamily: 'times-new-roman'
+  },
+  quotesOne: {
+    fontSize: 32
+  },
+  quotesTwo: {
+    fontSize: 41,
+    fontWeight: 'bold'
+  },
+  quotesThree: {
+    marginTop: 30,
+    fontSize: 28
   }
 }

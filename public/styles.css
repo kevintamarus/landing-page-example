@@ -6,6 +6,6 @@ html, body {
   min-height: 100%
 }
 
-.landing_page {
+#landing_page {
   background-color: 'white';
 }
