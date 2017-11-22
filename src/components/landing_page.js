@@ -72,7 +72,7 @@ class LandingPage extends Component {
       },
       quotes: {
         width: 450,
-        marginTop: -375,
+        marginTop: -400,
         marginLeft: width/1.8,
         textAlign: 'left',
         color: '#ffffff',
