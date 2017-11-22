@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Button} from 'react-bootstrap';
 import NetkiSVG from '../assets/nk-logo.svg';
 import LoginButton from '../assets/btn_login.svg';
-import InputForm from '../assets/bg_loginForm.svg';
+import {Input, Row} from 'react-materialize';
 
 class LandingPage extends Component {
   constructor(props) {
@@ -47,8 +47,12 @@ class LandingPage extends Component {
         textAlign: 'center',
         marginTop: height/9.6,
         marginBottom: height/9.6,
-        marginLeft: 75,
-        marginRight: 75
+        marginLeft: 50,
+        marginRight: 50
+      },
+      input: {
+        marginLeft: 60,
+        marginRight: 60
       },
       button: {
         cursor: 'pointer'
@@ -90,14 +94,12 @@ class LandingPage extends Component {
       <div className="text-center" style={styles.container}>
         <img src={NetkiSVG} style={styles.logo}/>
           <div style={styles.form}>
-            <form> 
-              <div className="form-group">
-                <input ref="email" type="email" className="form-control" placeholder="Username" required="" />
-              </div>
-              <div className="form-group">
-                <input ref="password" type="password" className="form-control" placeholder="Password" required="" />
-              </div>
-            </form>
+            <div style={styles.input}>
+              <Row> 
+                <Input type="email" label="USERNAME" s={12} />
+                <Input type="password" label="PASSWORD" s={12} />
+              </Row>
+            </div>
             <img src={LoginButton} onClick={() => {console.log('clicked')}} style={styles.button}/>
           </div>
         <div style={styles.footer}>
@@ -117,13 +119,3 @@ class LandingPage extends Component {
 }
 
 export default LandingPage
-
-
-
-const winHeight = pixels => {
-  return window.innerHeight/pixels;
-}
-
-let winWidth = pixels => {
-  return window.innerWidth/pixels;
-}
