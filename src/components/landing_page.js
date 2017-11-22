@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Button} from 'react-bootstrap';
 import NetkiSVG from '../assets/nk-logo.svg';
 import LoginButton from '../assets/btn_login.svg';
+import InputForm from '../assets/bg_loginForm.svg';
 
 class LandingPage extends Component {
   constructor(props) {
@@ -40,11 +41,12 @@ class LandingPage extends Component {
         textAlign: 'center'
       },
       logo: {
-        margin: 100
+        margin: height/9.6
       },
       form: {
         textAlign: 'center',
-        margin: 100,
+        marginTop: height/9.6,
+        marginBottom: height/9.6,
         marginLeft: 75,
         marginRight: 75
       },
@@ -52,20 +54,21 @@ class LandingPage extends Component {
         cursor: 'pointer'
       },
       footer: {
-        marginTop: 200,
-        fontFamily: 'times-new-roman',
-        fontSize: 14
+        marginTop: height/4.8,
+        fontFamily: 'Open Sans',
+        fontSize: 14,
+        fontWeight: 'bold'
       },
       footerOne: {
         color:'#929292'
       },
       footerTwo: {
-        color: '#11abd6'
+        color: '#11abd6',
+        cursor: 'pointer'
       },
       quotes: {
         width: 450,
-        marginTop: -400,
-        marginBottom: height/27,
+        marginTop: -350,
         marginLeft: width/1.8,
         textAlign: 'left',
         color: '#ffffff',
@@ -83,9 +86,6 @@ class LandingPage extends Component {
         fontSize: 28
       }
     }
-    console.log(window.innerHeight, 'window height')
-    console.log(window.innerWidth, 'window width')
-    console.log(winWidth(1.6), 'function')
     return (
       <div className="text-center" style={styles.container}>
         <img src={NetkiSVG} style={styles.logo}/>
@@ -104,7 +104,7 @@ class LandingPage extends Component {
           <span style={styles.footerOne}>Having Trouble Logging In?</span>
           <span style={styles.footerTwo}> We'll Help You! </span>
         </div>
-        { this.state.width > 1060 ?
+        { this.state.width > 1060 && this.state.height > 220?
           <div style={styles.quotes} >
             <div style={styles.quotesOne}>Welcome to</div>
             <div style={styles.quotesTwo}>Compliance Dashboard</div>
@@ -114,8 +114,6 @@ class LandingPage extends Component {
       </div>
     )
   }
-
-
 }
 
 export default LandingPage

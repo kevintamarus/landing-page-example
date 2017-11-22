@@ -8,6 +8,7 @@
     "react": "^16.1.0",
     "react-bootstrap": "^0.31.5",
     "react-dom": "^16.1.0",
+    "react-materialize": "^1.1.0",
     "react-randomizer": "^1.0.3",
     "react-scripts": "1.0.17",
     "webfontloader": "^1.6.28"
