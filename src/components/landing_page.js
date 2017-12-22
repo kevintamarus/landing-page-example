@@ -8,6 +8,7 @@ class LandingPage extends Component {
   constructor(props) {
     super(props);
     this.updateDimensions = this.updateDimensions.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       width: 1600,
       height: 960
@@ -29,16 +30,30 @@ class LandingPage extends Component {
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateDimensions);
   }
+
+  handleClick(e) {
+    console.log(e, 'event')
+    const username = this.refs.email.value.trim()
+    const password = this.refs.password.value.trim()
+    e.preventDefault()
+    if (!username) {
+      alert('Please enter username')
+      return
+    }
+    if (!password) {
+      alert('Please enter password')
+      return
+    }
+    const creds = { username: username, password: password }
+    console.log(creds, 'creds')
+  }
   
   render() {
     let height = this.state.height;
     let width = this.state.width;
     let styles = {
       container: {
-        backgroundColor: '#ffffff',
-        height: height,
-        width: 570,
-        textAlign: 'center'
+        backgroundColor: '#ffffff'
       },
       logo: {
         margin: height/9.6
@@ -58,7 +73,7 @@ class LandingPage extends Component {
         cursor: 'pointer'
       },
       footer: {
-        marginTop: height/4.8,
+        marginTop: height/9.6,
         fontFamily: 'Open Sans',
         fontSize: 14,
         fontWeight: 'bold'
@@ -77,42 +92,28 @@ class LandingPage extends Component {
         textAlign: 'left',
         color: '#ffffff',
         fontFamily: 'Open Sans'
-      },
-      quotesOne: {
-        fontSize: 32
-      },
-      quotesTwo: {
-        fontSize: 41,
-        fontWeight: 'bold'
-      },
-      quotesThree: {
-        marginTop: 30,
-        fontSize: 28
       }
     }
     return (
-      <div className="text-center" style={styles.container}>
-        <img src={NetkiSVG} style={styles.logo}/>
-          <div style={styles.form}>
-            <div style={styles.input}>
-              <Row> 
-                <Input type="email" label="USERNAME" s={12} />
-                <Input type="password" label="PASSWORD" s={12} />
-              </Row>
+      <div className="text-center">
+        <img src={NetkiSVG} style={{marginTop: 100, marginBottom: 100}}/>
+          <div>
+            <div>
+            <form style={{marginBottom: 25, marginLeft: 60, marginRight: 60}}>
+            <div>
+              <input ref="email" type="email" className="form-control" placeholder="Username" required="" />
             </div>
-            <img src={LoginButton} onClick={() => {console.log('clicked')}} style={styles.button}/>
+            <div>
+              <input ref="password" type="password" className="form-control" placeholder="Password" required="" />
+            </div>
+          </form>
+            </div>
+            <img src={LoginButton} type="submit" onClick={(e) => this.handleClick(e)}/>
           </div>
         <div style={styles.footer}>
           <span style={styles.footerOne}>Having Trouble Logging In?</span>
           <span style={styles.footerTwo}> We'll Help You! </span>
         </div>
-        { this.state.width > 1060 && this.state.height > 220?
-          <div style={styles.quotes} >
-            <div style={styles.quotesOne}>Welcome to</div>
-            <div style={styles.quotesTwo}>Compliance Dashboard</div>
-            <div style={styles.quotesThree}>Knowing your customers have never been so fast</div>
-          </div>
-        : null }
       </div>
     )
   }
